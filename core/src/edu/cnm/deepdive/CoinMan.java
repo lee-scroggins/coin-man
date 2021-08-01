@@ -18,8 +18,8 @@ public class CoinMan extends ApplicationAdapter {
     Texture[] man;
     int manState = 0;
     int pause = 0;
-    float gravity = 0.2f;
-    float velocity = 0;
+    float gravity = 1f;
+    float velocity = 10;
     int manY = 0;
     Texture bomb;
     Texture dizzy;
@@ -103,7 +103,7 @@ public class CoinMan extends ApplicationAdapter {
             bombRectangles.clear();
             for (int i = 0; i < bombXs.size(); i++) {
                 batch.draw(bomb, bombXs.get(i), bombYs.get(i));
-                bombXs.set(i, bombXs.get(i) - 20);
+                bombXs.set(i, bombXs.get(i) - 15);
                 bombRectangles.add(new Rectangle(bombXs.get(i), bombYs.get(i), bomb.getWidth(), bomb.getHeight()));
             }
 
@@ -118,11 +118,13 @@ public class CoinMan extends ApplicationAdapter {
             coinRectangles.clear();
             for (int i = 0; i < coinXs.size(); i++) {
                 batch.draw(coin, coinXs.get(i), coinYs.get(i));
-                coinXs.set(i, coinXs.get(i) - 10);
+                coinXs.set(i, coinXs.get(i) - 15);
                 coinRectangles.add(new Rectangle(coinXs.get(i), coinYs.get(i), coin.getWidth(), coin.getHeight()));
             }
-            if (Gdx.input.justTouched()) {
-                velocity = -8;
+
+            // Player Physics
+            if (manY < 300 && Gdx.input.justTouched()) {
+                velocity = -25;
             }
 
             if (pause < 8) {
