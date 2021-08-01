@@ -90,6 +90,8 @@ public class CoinMan extends ApplicationAdapter {
 
         if (gameState == 1) {
             // Game is Live
+
+
             // Bombs
             if (bombCount < 350) {
                 bombCount++;
@@ -116,7 +118,7 @@ public class CoinMan extends ApplicationAdapter {
             coinRectangles.clear();
             for (int i = 0; i < coinXs.size(); i++) {
                 batch.draw(coin, coinXs.get(i), coinYs.get(i));
-                coinXs.set(i, coinXs.get(i) - 8);
+                coinXs.set(i, coinXs.get(i) - 10);
                 coinRectangles.add(new Rectangle(coinXs.get(i), coinYs.get(i), coin.getWidth(), coin.getHeight()));
             }
             if (Gdx.input.justTouched()) {
