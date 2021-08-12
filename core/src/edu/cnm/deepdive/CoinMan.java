@@ -93,7 +93,7 @@ public class CoinMan extends ApplicationAdapter {
 
 
             // Bombs
-            if (bombCount < 350) {
+            if (bombCount < 75) {
                 bombCount++;
             } else {
                 bombCount = 0;
@@ -103,7 +103,7 @@ public class CoinMan extends ApplicationAdapter {
             bombRectangles.clear();
             for (int i = 0; i < bombXs.size(); i++) {
                 batch.draw(bomb, bombXs.get(i), bombYs.get(i));
-                bombXs.set(i, bombXs.get(i) - 15);
+                bombXs.set(i, bombXs.get(i) - 20);
                 bombRectangles.add(new Rectangle(bombXs.get(i), bombYs.get(i), bomb.getWidth(), bomb.getHeight()));
             }
 
